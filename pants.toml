@@ -1,2 +1,24 @@
+# https://www.pantsbuild.org/docs/reference-global
 [GLOBAL]
-pants_version = "2.15.0"
+pants_version = "2.16.0.dev7"
+backend_packages = [
+    "pants.backend.build_files.fmt.black",
+    "pants.backend.python",
+    "pants.backend.python.lint.docformatter",
+    "pants.backend.python.lint.black",
+    "pants.backend.python.typecheck.mypy",
+    "pants.backend.experimental.python.lint.ruff",
+]
+
+# https://www.pantsbuild.org/docs/anonymous-telemetry
+[anonymous-telemetry]
+enabled = true
+repo_id = "50508a45-7971-40e8-a2d8-5dd062e1f2ba"
+
+# https://www.pantsbuild.org/docs/python
+[python]
+interpreter_constraints = ["CPython==3.10.*"]
+enable_resolves = true
+
+[source]
+root_patterns = ["/", "src/python/**/*"]
